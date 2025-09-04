@@ -25,3 +25,8 @@ follow the link: https://eleva-frontend-task.vercel.app/
 - **Live Rendering:** displays output incrementally as tokens stream in.
 - **Abort Support:** cancels ongoing generation if a new request starts.
 - **State Management:** uses React hooks for form values, errors, streaming state, and output sections.
+
+## Demo
+
+https://github.com/user-attachments/assets/6a60b8c1-8b79-49c8-b748-34c113e4fa18
+
