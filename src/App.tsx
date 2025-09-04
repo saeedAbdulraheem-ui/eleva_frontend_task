@@ -21,17 +21,16 @@ async function* mockAIStream(values: Values, signal?: AbortSignal): AsyncGenerat
   const toneAdj: Record<string, string> = {
     confident: "confident",
     friendly: "friendly",
-    investor: "investor-ready",
-    playful: "playful",
+    casual: "casual",
     technical: "technical",
   };
 
   const headlineText = `${company}: a ${toneAdj[tone] || "confident"} path to solve ${problem}`;
-  const subheadText = `We tackle ${problem} with ${solution}. The ask: ${ask}.`;
+  const subheadText = `we deal with ${problem} using ${solution}. the ask: ${ask}.`;
   const bodyText = [
-    `At ${company}, we are focused on solving ${problem} with a ${toneAdj[tone] || "confident"} approach.`,
-    `Our solution: ${solution}.`,
-    `Today, we are asking for ${ask} to accelerate execution.`,
+    `at ${company}, we are focused on solvign ${problem} with tone: ${toneAdj[tone] || "confident"}.`,
+    `using solution: ${solution}.`,
+    `today, we are asking for ${ask} to speed up execution.`,
   ].join(" ");
 
   const streams = [
@@ -53,11 +52,11 @@ async function* mockAIStream(values: Values, signal?: AbortSignal): AsyncGenerat
 
 function validate(values: Values): Partial<Record<keyof Values, string>> {
   const errors: Partial<Record<keyof Values, string>> = {};
-  if (!values.company.trim()) errors.company = "Company is required.";
-  if (!values.problem.trim()) errors.problem = "Problem is required.";
-  if (!values.solution.trim()) errors.solution = "Solution is required.";
-  if (!values.ask.trim()) errors.ask = "Ask is required.";
-  if (!values.tone.trim()) errors.tone = "Tone is required.";
+  if (!values.company.trim()) errors.company = "company is required.";
+  if (!values.problem.trim()) errors.problem = "problem is required.";
+  if (!values.solution.trim()) errors.solution = "solution is required.";
+  if (!values.ask.trim()) errors.ask = "ask is required.";
+  if (!values.tone.trim()) errors.tone = "tone is required.";
   return errors;
 }
 
@@ -133,8 +132,7 @@ export default function App() {
         <select name="tone" value={values.tone} onChange={handleChange}>
           <option value="confident">Confident</option>
           <option value="friendly">Friendly</option>
-          <option value="investor">Investor-serious</option>
-          <option value="playful">Playful</option>
+          <option value="casual">casual</option>
           <option value="technical">Technical</option>
         </select>
 
